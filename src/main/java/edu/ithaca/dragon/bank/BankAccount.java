@@ -120,4 +120,14 @@ public class BankAccount {
         return true;
     }
 
+    /**
+     * Checks that the amoutn given is valid. The amount is valid if it has no more than 2 decimal places
+     * and is not a negative amount
+     * @param amount - amount being checked for validity
+     * @return boolean - validity status
+     */
+    public static boolean isAmountValid(double amount){
+        return false;
+    }
+
 }
