@@ -92,7 +92,7 @@ public class BankAccount {
         }
 
         //checks that the second half of the email is at least 3 characters long
-        else if (second.length() <= 3) {
+        else if (second.length() < 3) {
             return false;
         }
 
