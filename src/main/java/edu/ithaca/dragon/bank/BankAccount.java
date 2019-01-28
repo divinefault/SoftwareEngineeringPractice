@@ -27,6 +27,9 @@ public class BankAccount {
     }
 
     /**
+     * This function reduces the balance by a valid amount.
+     * An invalid amount would be a negative amount or an amount greater than the balance
+     * @param amount - The amount desired to be withdrawn
      * @post reduces the balance by amount if amount is non-negative and smaller than balance
      */
     public void withdraw (double amount)  {
