@@ -45,7 +45,6 @@ public class BankAccount {
      */
     public static boolean isEmailValid(String email) {
 
-
         //checks that the email address doesn't contain a space
         if (email.contains(" ")) {
             return false;
