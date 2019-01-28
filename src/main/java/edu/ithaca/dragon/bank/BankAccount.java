@@ -61,7 +61,7 @@ public class BankAccount {
         }
 
         //splits email at the @
-        String[] emailSections = email.split("@", 2);
+        String[] emailSections = email.split("@");
 
         //ensures that there are two email sections
         if (emailSections.length != 2) {
@@ -127,7 +127,15 @@ public class BankAccount {
      * @return boolean - validity status
      */
     public static boolean isAmountValid(double amount){
-        return false;
+        String strAmount = Double.toString(amount);
+        if (strAmount.substring(strAmount.indexOf("."),strAmount.length()).length() > 2){
+            return false;
+        }
+
+        if(amount < 0 ){
+            return false;
+        }
+        return true;
     }
 
 }

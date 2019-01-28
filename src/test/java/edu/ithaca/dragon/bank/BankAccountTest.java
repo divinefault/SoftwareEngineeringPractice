@@ -42,7 +42,7 @@ class BankAccountTest {
     void isAmountValidTest(){
         assertTrue(BankAccount.isAmountValid(200.00));
         assertFalse(BankAccount.isAmountValid(-10.00));
-        assertFalse(BankAccount.isAmountValid(200.000));
+        assertFalse(BankAccount.isAmountValid(200.001));
     }
 
     @Test
