@@ -43,12 +43,72 @@ public class BankAccount {
      * @param email - string being checked for validity
      * @return boolean - validity status
      */
-    public static boolean isEmailValid(String email){
-        if (email.indexOf('@') == -1){
+    public static boolean isEmailValid(String email) {
+
+
+        //checks that the email address doesn't contain a space
+        if (email.contains(" ")) {
             return false;
         }
-        else {
-            return true;
+
+        //splits email at the @
+        String[] emailSections = email.split("@", 2);
+
+        //ensures that there are two email sections
+        if (emailSections.length != 2) {
+            return false;
         }
+
+        //String before @
+        String first = emailSections[0];
+        //String after @
+        String second = emailSections[1];
+        //Characters that shall not be used
+        String charsNotToUse = "!@#$%^&*";
+        //Characters that can be used but not at the beginning or end of the string
+        String charsThatMayBeUsed = "-._";
+
+        //checks that there is something in the first section of the email isn't empty
+        if (first.length() <= 0) {
+            return false;
+        }
+
+        //checks that the second half of the email is at least 3 characters long
+        else if (second.length() <= 3) {
+            return false;
+        }
+
+        //makes sure that the first string does not contain a special character
+        for (int i = 0; i < first.length(); i++) {
+            if (charsNotToUse.indexOf(first.charAt(i)) != -1) {
+                return false;
+            }
+        }
+
+        //checks that the second string doesn't contain special characters
+        for (int i = 0; i < second.length(); i++) {
+            if (charsNotToUse.indexOf(second.charAt(i)) != -1) {
+                return false;
+            }
+        }
+
+
+        // makes sure that first string does not begin or end with a "-._"
+        for (int i = 0; i < charsThatMayBeUsed.length(); i++) {
+            if (first.charAt(0) == charsThatMayBeUsed.charAt(i) || first.charAt(first.length()-1) == charsThatMayBeUsed.charAt(i)) {
+                return false;
+            }
+        }
+
+        //checks that the second string contains but does not begin or end with a period
+        if (second.contains(".")) {
+            if (second.startsWith(".") || second.endsWith(".")) {
+                return false;
+            }
+
+        }
+
+        return true;
     }
+
 }
